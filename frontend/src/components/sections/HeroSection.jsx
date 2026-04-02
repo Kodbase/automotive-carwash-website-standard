@@ -6,6 +6,7 @@ import { i18n } from "../../../../shared/i18n";
 import { CONTACT } from "../../../../shared/constants";
 import CTAButton from "../ui/CTAButton";
 import Container from "../ui/Container";
+import imgHero from "../../assets/hero.jpg"
 import styles from "../../styles/HeroSection.module.css";
 
 export default function HeroSection() {
@@ -129,7 +130,7 @@ export default function HeroSection() {
 
             {/* Araç placeholder kartı */}
             <div className={styles.carCard}>
-              <div className={styles.carEmoji}>🚗</div>
+              <div className={styles.carEmoji}><img style={{borderRadius: "16px"}} src={imgHero} alt="Araba" /></div>
               <div className={styles.carCardBadge}>
                 <span>✦</span>
                 {lang === "tr" ? "Detailing Pro" : "Pro Detail"}
