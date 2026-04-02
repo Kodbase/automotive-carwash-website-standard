@@ -1,0 +1,121 @@
+/* frontend/src/styles/About.module.css */
+
+.multilineTitle { white-space: pre-line; }
+
+/* ── Section ── */
+.section { padding: var(--section-py) 0; }
+
+/* ── Story Grid ── */
+.storyGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+@media (max-width: 768px) {
+  .storyGrid { grid-template-columns: 1fr; }
+}
+
+.storyCard {
+  background: var(--color-surface);
+  border: 1px solid var(--color-white-07);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: border-color var(--transition-fast);
+  animation: fadeUp 0.6s ease both;
+}
+
+.storyCard:hover { border-color: var(--color-secondary-border); }
+.storyCard:nth-child(2) { animation-delay: 0.15s; }
+
+.cardTitle {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  letter-spacing: 0.04em;
+  color: var(--color-secondary);
+  line-height: 1;
+}
+
+.cardBody {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--color-white-45);
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* ── Values Grid ── */
+.valuesGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+@media (max-width: 900px) {
+  .valuesGrid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+  .valuesGrid { grid-template-columns: 1fr; }
+}
+
+.valueCard {
+  background: var(--color-surface);
+  border: 1px solid var(--color-white-07);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: center;
+  transition: border-color var(--transition-fast), transform var(--transition-fast);
+  animation: fadeUp 0.6s ease both;
+}
+
+.valueCard:hover {
+  border-color: var(--color-secondary-border);
+  transform: translateY(-4px);
+}
+
+.valueCard:nth-child(1) { animation-delay: 0.1s; }
+.valueCard:nth-child(2) { animation-delay: 0.2s; }
+.valueCard:nth-child(3) { animation-delay: 0.3s; }
+.valueCard:nth-child(4) { animation-delay: 0.4s; }
+
+.valueIcon {
+  font-size: 2rem;
+  display: block;
+}
+
+.valueTitle {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  letter-spacing: 0.06em;
+  color: var(--color-accent);
+  line-height: 1;
+}
+
+.valueDesc {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--color-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ── CTA ── */
+.cta {
+  display: flex;
+  justify-content: center;
+}
+
+/* ── Keyframes ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}

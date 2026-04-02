@@ -1,0 +1,409 @@
+/* frontend/src/styles/HeroSection.module.css */
+
+/* ── Section ────────────────────────────────────── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background:
+    linear-gradient(135deg, #0a0a0a 0%, #111111 50%, #0d0c08 100%);
+  overflow: hidden;
+}
+
+/* ── Grain ──────────────────────────────────────── */
+.grain {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ── Glow ───────────────────────────────────────── */
+.glowLeft {
+  position: absolute;
+  top: 20%;
+  left: -10%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--color-secondary-dim) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+  animation: glowPulse 6s ease-in-out infinite;
+}
+
+.glowRight {
+  position: absolute;
+  top: 50%;
+  right: -5%;
+  transform: translateY(-50%);
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201, 168, 76, 0.08) 0%, transparent 65%);
+  pointer-events: none;
+  z-index: 1;
+  animation: glowPulse 8s ease-in-out infinite reverse;
+}
+
+/* ── Sol border çizgisi ─────────────────────────── */
+.borderLine {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    var(--color-secondary) 30%,
+    var(--color-secondary) 70%,
+    transparent 100%
+  );
+  opacity: 0.5;
+  z-index: 2;
+}
+
+/* ── Grid ───────────────────────────────────────── */
+.grid {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 4rem;
+  padding: 7rem 0 5rem;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 3rem;
+    padding: 5rem 0 4rem;
+  }
+}
+
+/* ── Sol içerik ─────────────────────────────────── */
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  animation: fadeUp 0.7s ease both;
+}
+
+/* ── Tag ────────────────────────────────────────── */
+.tag {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  animation: fadeUp 0.6s ease both;
+  animation-delay: 0.1s;
+}
+
+.tagLine {
+  display: block;
+  width: 28px;
+  height: 2px;
+  background: var(--color-secondary);
+  flex-shrink: 0;
+}
+
+.tagText {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+}
+
+@media (max-width: 900px) {
+  .tag { justify-content: center; }
+}
+
+/* ── Başlık ─────────────────────────────────────── */
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(3.8rem, 6.5vw, 6rem);
+  line-height: 0.92;
+  letter-spacing: 0.02em;
+  color: var(--color-accent);
+  animation: fadeUp 0.7s ease both;
+  animation-delay: 0.2s;
+}
+
+.titleGold {
+  color: var(--color-secondary);
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(90deg, #C9A84C, #f0d080, #C9A84C);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation:
+    fadeUp 0.7s ease both 0.2s,
+    shimmer 3s linear infinite 1s;
+}
+
+/* ── Subtitle ───────────────────────────────────── */
+.subtitle {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: var(--color-white-45);
+  max-width: 440px;
+  line-height: 1.7;
+  animation: fadeUp 0.7s ease both;
+  animation-delay: 0.35s;
+}
+
+@media (max-width: 900px) {
+  .subtitle { margin-inline: auto; }
+}
+
+/* ── CTAs ───────────────────────────────────────── */
+.ctas {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  animation: fadeUp 0.7s ease both;
+  animation-delay: 0.5s;
+}
+
+@media (max-width: 900px) {
+  .ctas { justify-content: center; }
+}
+
+/* ── Stats ──────────────────────────────────────── */
+.stats {
+  display: flex;
+  align-items: center;
+  padding-top: 0.5rem;
+  animation: fadeUp 0.7s ease both;
+  animation-delay: 0.65s;
+}
+
+.statGroup {
+  display: flex;
+  align-items: center;
+}
+
+.statDivider {
+  width: 1px;
+  height: 36px;
+  background: var(--color-white-10);
+  margin: 0 1.25rem;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.statValue {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  letter-spacing: 0.04em;
+  color: var(--color-secondary);
+  line-height: 1;
+}
+
+.statLabel {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  color: var(--color-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 900px) {
+  .stats { justify-content: center; }
+}
+
+/* ── Sağ görsel ─────────────────────────────────── */
+.visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 420px;
+  animation: fadeLeft 0.9s ease both;
+  animation-delay: 0.3s;
+}
+
+@media (max-width: 900px) {
+  .visual { height: 300px; }
+}
+
+/* Dönen halka */
+.ringOuter {
+  position: absolute;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  border: 1px solid var(--color-secondary-dim);
+  animation: rotateSlow 20s linear infinite;
+}
+
+.ringInner {
+  position: absolute;
+  inset: 20px;
+  border-radius: 50%;
+  border: 1px dashed rgba(201, 168, 76, 0.1);
+  animation: rotateSlow 12s linear infinite reverse;
+}
+
+/* Araç kartı */
+.carCard {
+  position: relative;
+  z-index: 2;
+  width: 220px;
+  height: 220px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-secondary-border);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  animation: floatY 5s ease-in-out infinite;
+  box-shadow:
+    0 0 60px rgba(201, 168, 76, 0.08),
+    0 24px 48px rgba(0, 0, 0, 0.4);
+}
+
+.carEmoji {
+  font-size: 5rem;
+  line-height: 1;
+  filter: drop-shadow(0 4px 16px rgba(201, 168, 76, 0.3));
+}
+
+.carCardBadge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  background: var(--color-secondary-dim);
+  border: 1px solid var(--color-secondary-border);
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+}
+
+/* Floating badge'ler */
+.badge {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 14px;
+  background: rgba(15, 15, 15, 0.9);
+  border: 1px solid var(--color-white-10);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-white-60);
+  backdrop-filter: blur(10px);
+  white-space: nowrap;
+  z-index: 3;
+}
+
+.badgeTop {
+  top: 10%;
+  right: 0;
+  animation: badgePop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both 1s,
+             floatY 4s ease-in-out infinite 1.5s;
+}
+
+.badgeBottom {
+  bottom: 10%;
+  left: 0;
+  animation: badgePop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both 1.2s,
+             floatY 5s ease-in-out infinite 2s reverse;
+}
+
+.badgeDot {
+  display: block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #25D366;
+  box-shadow: 0 0 8px #25D366;
+  animation: blink 2s ease-in-out infinite;
+}
+
+/* ── Scroll hint ────────────────────────────────── */
+.scrollHint {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+}
+
+.scrollDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-secondary);
+  animation: scrollBounce 2s ease-in-out infinite;
+  box-shadow: 0 0 12px var(--color-secondary);
+}
+
+/* ── Keyframes ──────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+@keyframes fadeLeft {
+  from { opacity: 0; transform: translateX(36px); }
+  to   { opacity: 1; transform: translateX(0);    }
+}
+
+@keyframes floatY {
+  0%, 100% { transform: translateY(0);    }
+  50%       { transform: translateY(-16px); }
+}
+
+@keyframes rotateSlow {
+  from { transform: rotate(0deg);   }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.6; transform: scale(1);    }
+  50%       { opacity: 1;   transform: scale(1.08); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+@keyframes badgePop {
+  from { opacity: 0; transform: scale(0.7); }
+  to   { opacity: 1; transform: scale(1);   }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0);   opacity: 1;   }
+  50%       { transform: translateY(8px); opacity: 0.4; }
+}

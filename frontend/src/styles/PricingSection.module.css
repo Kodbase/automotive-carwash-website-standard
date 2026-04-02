@@ -1,0 +1,237 @@
+/* frontend/src/styles/PricingSection.module.css */
+
+/* ── Section ────────────────────────────────────── */
+.section {
+  padding: var(--section-py) 0;
+  position: relative;
+}
+
+/* ── Grid ───────────────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .grid { grid-template-columns: 1fr; max-width: 480px; margin-inline: auto; }
+}
+
+/* ── Card ───────────────────────────────────────── */
+.card {
+  position: relative;
+  background: var(--color-surface);
+  border: 1px solid var(--color-white-07);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  overflow: hidden;
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+  animation: fadeUp 0.6s ease both;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: var(--color-secondary-border);
+}
+
+/* Popular kart */
+.popular {
+  border-color: var(--color-secondary-border);
+  background: linear-gradient(160deg, #1e1e1e 0%, #1a1608 100%);
+  transform: scale(1.03);
+  z-index: 2;
+}
+
+.popular:hover { transform: scale(1.03) translateY(-6px); }
+
+@media (max-width: 900px) {
+  .popular { transform: scale(1); }
+  .popular:hover { transform: translateY(-6px); }
+}
+
+/* ── Popular Badge ──────────────────────────────── */
+.popularBadge {
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translate(-50%, 0);
+  background: var(--color-secondary);
+  color: var(--color-bg);
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 5px 16px;
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+
+/* ── Card Header ────────────────────────────────── */
+.cardHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding-top: 1rem;
+}
+
+.pkgName {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  letter-spacing: 0.06em;
+  color: var(--color-accent);
+  line-height: 1;
+}
+
+.pkgDesc {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: var(--color-muted);
+  margin: 0;
+}
+
+/* ── Price ──────────────────────────────────────── */
+.priceWrap {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+}
+
+.price {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  letter-spacing: 0.02em;
+  color: var(--color-secondary);
+  line-height: 1;
+}
+
+.pricePer {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: var(--color-muted);
+}
+
+/* ── Divider ────────────────────────────────────── */
+.divider {
+  height: 1px;
+  background: var(--color-white-07);
+}
+
+.popular .divider { background: var(--color-secondary-dim); }
+
+/* ── Features ───────────────────────────────────── */
+.features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  flex: 1;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--color-white-60);
+}
+
+.check {
+  color: var(--color-secondary);
+  font-size: 0.8rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  width: 16px;
+}
+
+.cross {
+  color: var(--color-muted);
+  font-size: 0.75rem;
+  flex-shrink: 0;
+  width: 16px;
+  opacity: 0.5;
+}
+
+.excluded {
+  opacity: 0.4;
+  text-decoration: line-through;
+  text-decoration-color: var(--color-muted);
+}
+
+/* ── CTA ────────────────────────────────────────── */
+.cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 20px;
+  background: transparent;
+  border: 1px solid var(--color-white-10);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-white-60);
+  text-decoration: none;
+  transition: border-color var(--transition-fast),
+              color var(--transition-fast),
+              background var(--transition-fast),
+              transform var(--transition-fast);
+  margin-top: auto;
+}
+
+.cta:hover {
+  border-color: var(--color-secondary);
+  color: var(--color-secondary);
+  transform: translateY(-2px);
+}
+
+.ctaPopular {
+  background: var(--color-secondary);
+  border-color: var(--color-secondary);
+  color: var(--color-bg);
+}
+
+.ctaPopular:hover {
+  background: var(--color-secondary-hover);
+  border-color: var(--color-secondary-hover);
+  color: var(--color-bg);
+}
+
+/* ── Card Glow ──────────────────────────────────── */
+.cardGlow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at top center,
+    rgba(201, 168, 76, 0.07) 0%,
+    transparent 65%
+  );
+  border-radius: var(--radius-md);
+}
+
+/* ── Note ───────────────────────────────────────── */
+.note {
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: var(--color-muted);
+  margin-top: 2rem;
+  opacity: 0.7;
+}
+
+/* ── Keyframes ──────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}

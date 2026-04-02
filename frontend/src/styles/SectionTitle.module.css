@@ -1,0 +1,27 @@
+/* frontend/src/styles/SectionTitle.module.css */
+
+.wrapper   { margin-bottom: 3rem; }
+.center    { text-align: center; }
+.left      { text-align: left;   }
+
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  letter-spacing: 0.04em;
+  color: var(--color-accent);
+  margin: 0 0 0.75rem;
+  line-height: 1;
+}
+
+.gold { color: var(--color-secondary); }
+
+.subtitle {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-white-45);
+  max-width: 520px;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.center .subtitle { margin-inline: auto; }

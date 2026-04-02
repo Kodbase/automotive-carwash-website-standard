@@ -1,0 +1,362 @@
+/* frontend/src/styles/ContactSection.module.css */
+
+/* ── Section ────────────────────────────────────── */
+.section {
+  padding: var(--section-py) 0;
+  position: relative;
+}
+
+/* ── Grid ───────────────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .grid { grid-template-columns: 1fr; }
+}
+
+/* ── Form Block ─────────────────────────────────── */
+.formBlock {
+  background: var(--color-surface);
+  border: 1px solid var(--color-white-07);
+  border-radius: var(--radius-md);
+  padding: 2.5rem;
+  animation: fadeUp 0.6s ease both 0.1s;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 560px) {
+  .row { grid-template-columns: 1fr; }
+}
+
+/* ── Field ──────────────────────────────────────── */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.input {
+  background: var(--color-primary);
+  border: 1px solid var(--color-white-10);
+  border-radius: var(--radius-sm);
+  padding: 0.875rem 1rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--color-accent);
+  outline: none;
+  transition: border-color var(--transition-fast),
+              box-shadow var(--transition-fast);
+  width: 100%;
+}
+
+.input::placeholder { color: var(--color-muted); opacity: 0.6; }
+
+.input:focus {
+  border-color: var(--color-secondary-border);
+  box-shadow: 0 0 0 3px var(--color-secondary-dim);
+}
+
+.input:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.textarea {
+  resize: vertical;
+  min-height: 130px;
+  line-height: 1.6;
+}
+
+/* ── Submit ─────────────────────────────────────── */
+.submitBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: var(--color-secondary);
+  color: var(--color-bg);
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.submitBtn:hover:not(:disabled) {
+  opacity: 0.85;
+  transform: translateY(-2px);
+}
+
+.submitBtn:disabled { cursor: not-allowed; opacity: 0.7; }
+
+.sending { opacity: 0.75; }
+
+/* Spinner */
+.spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(0,0,0,0.2);
+  border-top-color: var(--color-bg);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+/* ── Feedback ───────────────────────────────────── */
+.feedbackSuccess,
+.feedbackError {
+  padding: 0.875rem 1rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  animation: fadeUp 0.4s ease both;
+}
+
+.feedbackSuccess {
+  background: rgba(37, 211, 102, 0.1);
+  border: 1px solid rgba(37, 211, 102, 0.25);
+  color: #25D366;
+}
+
+.feedbackError {
+  background: rgba(255, 80, 80, 0.1);
+  border: 1px solid rgba(255, 80, 80, 0.25);
+  color: #ff6b6b;
+}
+
+/* ── Info Block ─────────────────────────────────── */
+.infoBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  animation: fadeUp 0.6s ease both 0.25s;
+}
+
+/* WhatsApp CTA */
+.whatsappBtn {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  background: rgba(37, 211, 102, 0.08);
+  border: 1px solid rgba(37, 211, 102, 0.25);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: background var(--transition-fast),
+              border-color var(--transition-fast),
+              transform var(--transition-fast);
+}
+
+.whatsappBtn:hover {
+  background: rgba(37, 211, 102, 0.14);
+  border-color: rgba(37, 211, 102, 0.4);
+  transform: translateY(-2px);
+}
+
+.whatsappIcon { font-size: 1.8rem; flex-shrink: 0; }
+
+.whatsappText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.whatsappLabel {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #25D366;
+}
+
+.whatsappSub {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  color: var(--color-muted);
+}
+
+.whatsappArrow {
+  font-size: 1.1rem;
+  color: #25D366;
+  opacity: 0.6;
+  transition: transform var(--transition-fast);
+}
+
+.whatsappBtn:hover .whatsappArrow { transform: translateX(4px); opacity: 1; }
+
+/* Info list */
+.infoList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  background: var(--color-surface);
+  border: 1px solid var(--color-white-07);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.infoItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--color-white-07);
+  transition: background var(--transition-fast);
+}
+
+.infoItem:last-child { border-bottom: none; }
+.infoItem:hover      { background: var(--color-primary); }
+
+.infoIcon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.infoText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.infoLabel {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.infoValue {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a.infoValue:hover { color: var(--color-secondary); }
+
+.infoSub {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: var(--color-muted);
+}
+
+/* Harita */
+.mapWrap {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--color-white-07);
+}
+
+.mapPlaceholder {
+  height: 140px;
+  background: linear-gradient(135deg, #111 0%, #1a1a0d 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.mapPin   { font-size: 2rem; }
+
+.mapLabel {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--color-white-45);
+}
+
+.mapLink {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-secondary);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  transition: opacity var(--transition-fast);
+}
+
+.mapLink:hover { opacity: 0.75; }
+
+/* Sosyal medya */
+.social {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.socialLabel {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  flex-shrink: 0;
+}
+
+.socialLinks {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.socialBtn {
+  padding: 6px 14px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-white-10);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-white-45);
+  text-decoration: none;
+  transition: border-color var(--transition-fast),
+              color var(--transition-fast);
+}
+
+.socialBtn:hover {
+  border-color: var(--color-secondary-border);
+  color: var(--color-secondary);
+}
+
+/* ── Keyframes ──────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

@@ -1,0 +1,15 @@
+/* frontend/src/styles/Container.module.css */
+
+.container {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: var(--container-px);
+}
+
+@media (min-width: 768px) {
+  .container { padding-inline: 2rem; }
+}
+
+.narrow  { max-width: 768px;  }
+.default { max-width: 1200px; }
+.wide    { max-width: 1440px; }
